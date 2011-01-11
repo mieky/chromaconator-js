@@ -3,6 +3,10 @@
 	<head>
 		<script src="chromaconator.js"></script>
 		<style type="text/css">
+			#output {
+				margin: 10px 0 10px 0;
+			}
+			
 			#output div {
 				float: left;
 				height: 20px;
@@ -12,30 +16,37 @@
 		</style>
 	</head>
 	<body>
-		<pre id="input">
-			O, for my sake do you with Fortune chide,
-			The guilty goddess of my harmful deeds,
-			That did not better for my life provide
-			Than public means which public manners breeds.
-			Thence comes it that my name receives a brand,
-			And almost thence my nature is subdued
-			To what it works in, like the dyer's hand:
-			Pity me then and wish I were renew'd;
-			Whilst, like a willing patient, I will drink
-			Potions of eisel 'gainst my strong infection
-			No bitterness that I will bitter think,
-			Nor double penance, to correct correction.
-			Pity me then, dear friend, and I assure ye
-			Even that your pity is enough to cure me.			
-		</pre>
+		<textarea id="input" rows="15" cols="80" style="font-family: monospace">
+O, for my sake do you with Fortune chide,
+The guilty goddess of my harmful deeds,
+That did not better for my life provide
+Than public means which public manners breeds.
+Thence comes it that my name receives a brand,
+And almost thence my nature is subdued
+To what it works in, like the dyer's hand:
+Pity me then and wish I were renew'd;
+Whilst, like a willing patient, I will drink
+Potions of eisel 'gainst my strong infection
+No bitterness that I will bitter think,
+Nor double penance, to correct correction.
+Pity me then, dear friend, and I assure ye
+Even that your pity is enough to cure me.			
+		</textarea>
+		<br />
+		
+		<button id="trigger">chromaconate</button>
 		
 		<div id="output">
 		</div>
 		
 		<script>
 			addEventListener("DOMContentLoaded", function () {
-				var input = document.querySelector("#input").innerText;
- 				document.querySelector("#output").innerHTML = chromaconate(input);
+				var text2color = function() {
+					var input = document.querySelector("#input").value;
+	 				document.querySelector("#output").innerHTML = chromaconate(input);
+				};
+				document.querySelector("#trigger").onclick = text2color;
+				text2color();
 			});
 		</script>
 	</body>
