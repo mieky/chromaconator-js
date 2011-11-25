@@ -39,19 +39,21 @@ Even that your pity is enough to cure me.
 		</textarea>
 		<br />
 		
-		<button id="trigger">chromaconate</button>
-		
 		<div id="output">
 		</div>
 		
 		<script>
 			addEventListener("DOMContentLoaded", function () {
-				var text2color = function() {
-					var input = document.querySelector("#input").value;
-	 				document.querySelector("#output").innerHTML = chromaconate(input);
+				var input = document.querySelector("#input"),
+					text2color = function(input) {
+	 				document.querySelector("#output").innerHTML = chromaconate(input.value);
 				};
-				document.querySelector("#trigger").onclick = text2color;
-				text2color();
+
+				text2color(input);
+
+				input.onkeyup = function() {
+					text2color(input);
+				};
 			}, false);
 		</script>
 	</body>
